@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Blog.WebUI
 {
@@ -21,6 +22,11 @@ namespace Blog.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Blog API", Version = "v1" });
+            });
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -44,6 +50,14 @@ namespace Blog.WebUI
             }
 
             //app.UseHttpsRedirection();
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Blog API V1");
+                //c.SwaggerEndpoint("/openapi.json", "Blog API V1");
+            });
+
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 

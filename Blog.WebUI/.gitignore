@@ -7,6 +7,7 @@
 *.userosscache
 *.sln.docstates
 
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -24,8 +25,10 @@ Bin/
 obj/
 Obj/
 
+
 # Visual Studio 2015 cache/options directory
 .vs/
+
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -64,6 +67,9 @@ dlldata.c
 *.pidb
 *.svclog
 *.scc
+
+# IDEA config files
+.idea/
 
 # Chutzpah Test files
 _Chutzpah*
