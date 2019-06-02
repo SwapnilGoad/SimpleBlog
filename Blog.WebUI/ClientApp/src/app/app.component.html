@@ -1,5 +1,25 @@
 <body>
-  <app-nav-menu></app-nav-menu>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h2>My Blog</h2>
+    <div style="display: flex;justify-content: flex-end;width: 100%">
+      <button mat-icon-button [mat-menu-trigger-for]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>face</mat-icon>
+          <span>About Me</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>message</mat-icon>
+          <span>Contact</span>
+        </button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-menu></mat-menu>
   <div class="container">
     <router-outlet></router-outlet>
   </div>
